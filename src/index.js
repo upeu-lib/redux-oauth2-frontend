@@ -1,9 +1,24 @@
-import React, {Component} from 'react'
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
+  login,
+  logout
+} from './actions'
+import authMiddleware from './middleware'
+import authReducer from './reducers'
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
+export {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
+  login,
+  logout,
+  authMiddleware,
+  authReducer
 }
+
+export { default } from './oauth2';
+

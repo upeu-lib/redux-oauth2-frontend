@@ -1,3 +1,4 @@
+/*
 import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
@@ -19,5 +20,13 @@ describe('Component', () => {
     render(<Component/>, node, () => {
       expect(node.innerHTML).toContain('Welcome to React components')
     })
+  })
+})
+*/
+import expect from 'expect'
+
+describe('test', () => {
+  it('empty test', () => {
+    expect(1).toEqual(1)
   })
 })
