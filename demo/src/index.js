@@ -1,15 +1,26 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
-import Example from '../../src'
+import { Provider } from 'react-redux'
+import store from './store'
 
-class Demo extends Component {
+import registerServiceWorker from './registerServiceWorker';
+/*
+
+class Appx extends Component {
   render() {
     return <div>
       <h1>redux-oauth2-frontend Demo</h1>
-      <Example/>
     </div>
   }
 }
+*/
+ReactDOM.render(
+  <Provider store={store} >
+    <App />
+  </Provider>
 
-render(<Demo/>, document.querySelector('#demo'))
+  ,
+  document.getElementById('demo'));
+registerServiceWorker();

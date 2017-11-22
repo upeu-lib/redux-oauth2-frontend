@@ -21,13 +21,14 @@ Describe redux-oauth2-frontend here.
 
 Instale previos
 ```sh
+
     D:\mi-react-project>npm i --S axios redux react-redux redux-thunk
 
 ```
 
 Instale redux-oauth2-frontend
 ```sh
-    D:\mi-react-project>npm i --S axios
+
 	D:\mi-react-project>npm i --S redux-oauth2-frontend
 
 ```
@@ -78,6 +79,7 @@ reducer
 
     let reducer = combineReducers({
         auth: auth,
+        ...
     })
 
     export default reducer
@@ -111,7 +113,7 @@ reducer
                 redirect: "http://localhost:3001",
                 scope: "read",
                 width: 400, 
-                height: 400 
+                height: 400
             }).then(result => {
                 localStorage.setItem('userToken', result.token)
                 localStorage.setItem('user', JSON.stringify({
