@@ -5,7 +5,7 @@ import App from './components/App';
 import { Provider } from 'react-redux'
 import store from './store'
 
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 /*
 
 class Appx extends Component {
@@ -23,4 +23,4 @@ ReactDOM.render(
 
   ,
   document.getElementById('demo'));
-registerServiceWorker();
+//registerServiceWorker();

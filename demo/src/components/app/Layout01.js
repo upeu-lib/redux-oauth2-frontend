@@ -61,17 +61,20 @@ class PersistentDrawer extends React.Component {
       width: 400, // Width (in pixels) of login popup window. Optional, default: 400
       height: 400 // Height (in pixels) of login popup window. Optional, default: 400
     }).then(result => {
-      console.log('token: ' + JSON.stringify(result.token))
-      console.log('expiresAt: ' + JSON.stringify(result.expiresAt))
-      localStorage.setItem('userToken', result.token)
+      if (result.token) {
+        console.log('token: ' + JSON.stringify(result.token))
+        console.log('expiresAt: ' + JSON.stringify(result.expiresAt))
+        localStorage.setItem('userToken', result.token)
 
-      localStorage.setItem('user', JSON.stringify({
-        username: 'is auth'
-      }))
-      this.setState({
-        username: 'is auth'
-      })
-      /*
+
+        localStorage.setItem('user', JSON.stringify({
+          username: 'is auth'
+        }))
+        this.setState({
+          username: 'is auth'
+        })
+
+        /*
       this.props.getLocalUserInfo().then(data => {
         //console.log('user: ' + JSON.stringify(data))
         localStorage.setItem('user', JSON.stringify(data))
@@ -82,6 +85,10 @@ class PersistentDrawer extends React.Component {
         }
       })
       */
+
+      }
+
+
     }, function (e) {
       console.log(e); // TypeError: Throwing
     })
@@ -115,8 +122,8 @@ class PersistentDrawer extends React.Component {
             </ul>
           </div>
           <div style={{ flex: 1, padding: '10px' }}>
-            {this.state.username}
-
+            {this.state.username} <br />
+            userToken={localStorage.getItem('userToken')}<br />
             <button onClick={isLoggedIn ? this.lLogout : this.lLogin} >{isLoggedIn ? 'logout' : 'Login'}</button>
             {routes.map((route, index) => (
               <Route
