@@ -56,7 +56,7 @@ class PersistentDrawer extends React.Component {
     this.props.login({
       url: "https://upeuauth-serve.herokuapp.com/o/authorize/",
       client: "TOz7Pb9vlvJdFuxlVjku0CwT5zz18J0WUo74VzN7",
-      redirect: "http://localhost:3000",
+      redirect: "https://upeu-lib.github.io/redux-oauth2-frontend",
       scope: "read",
       width: 400, // Width (in pixels) of login popup window. Optional, default: 400
       height: 400 // Height (in pixels) of login popup window. Optional, default: 400
@@ -100,8 +100,6 @@ class PersistentDrawer extends React.Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    let { location } = this.props
-    //console.log('location:' + JSON.stringify(location))
     return (
       <div>
         <div style={{ display: 'flex' }}>
@@ -115,34 +113,12 @@ class PersistentDrawer extends React.Component {
               <li><Link to="/bubblegum">Bubblegum</Link></li>
               <li><Link to="/shoelaces">Shoelaces</Link></li>
             </ul>
-
-            {routes.map((route, index) => (
-              // You can render a <Route> in as many places
-              // as you want in your app. It will render along
-              // with any other <Route>s that also match the URL.
-              // So, a sidebar or breadcrumbs or anything else
-              // that requires you to render multiple things
-              // in multiple places at the same URL is nothing
-              // more than multiple <Route>s.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.sidebar}
-              />
-            ))}
           </div>
-
           <div style={{ flex: 1, padding: '10px' }}>
-
             {this.state.username}
 
             <button onClick={isLoggedIn ? this.lLogout : this.lLogin} >{isLoggedIn ? 'logout' : 'Login'}</button>
-
-
             {routes.map((route, index) => (
-              // Render more <Route>s with the same paths as
-              // above, but different components this time.
               <Route
                 key={index}
                 path={route.path}
